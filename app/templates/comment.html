@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+		<h1>List of Comment Entries.</h1>
+		<table id="list-view">
+			<thead>
+				<tr>
+					<td><b>ID</td>
+					<td><b>Action_Id</b></td>
+					<td><b>User_Id</b></td>
+					<td><b>Content</b></td>
+					<td><b>Time</b></td>
+					<td><b> </td>
+					<td><b> </td>
+				</tr>
+			</thead>
+			{% if comment_entries %}
+			<tbody>
+			{% for entry in comment_entries %}
+				<tr>
+					<td><a href="/comment/{{ entry.id }}">{{ entry.id }}</a></td>
+					<td>{{ entry.action_id }}</td>
+					<td>{{ entry.user_id }}</td>
+					<td>{{ entry.content }}</td>
+					<td>{{ entry.time }}</td>
+					<td><a href="/comment/edit/{{ entry.id }}">Edit</a></td>
+					<td><a id="delete-link" data-callback="/comment/" data-url="/comment/{{ entry.id }}">Delete</a></td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+			{% else %}
+		</table>
+		You have no entries yet
+			{% endif %}
+			<br/><br/><b><a id="actions" href="/comment/add">Add new entry</a></b>
+{% endblock %}

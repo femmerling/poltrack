@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+	<h1>Welcome to Poltrack</h1><br/><br/>
+	  <p>Our Earth gets older from day to day.</p>
+	  <p>Humans pollute the earth by doing a lot of non-environmental friendly activities.</p>
+	  <p>Poltrack aims at changing your behavior to become more environmental friendly.</p>
+	  <h2>Sign In . . . </h2>
+	  <form id="login-form" action="/login" method="POST"/>
+		  <table>
+				<tr>
+					<td>Email:</td>
+					<td><input type="text" name="email"/></td>
+				</tr>
+				<tr>
+					<td>Select a Password:</td>
+					<td><input type="password" name="password"/></td>
+				</tr>
+				<tr>
+					<td><input type="submit" name="submit" value="Sign In"/></td>
+					<td> </td>
+				</tr>
+		</table>
+	  </form>
+	  <h2>Or Start a New Life as a Poltrackian . . .</h2>
+	  <form name="user_add" method="post" action="/user/">
+		<table>
+				<tr>
+					<td>Email:</td>
+					<td><input type="text" name="email"/></td>
+				</tr>
+				<tr>
+					<td>First Name:</td>
+					<td><input type="text" name="first_name"/></td>
+				</tr>
+				<tr>
+					<td>Last Name:</td>
+					<td><input type="text" name="last_name"/></td>
+				</tr>
+				<tr>
+					<td>Select a Password:</td>
+					<td><input type="password" name="password"/></td>
+				</tr>
+				<tr>
+					<td>Country:</td>
+					<td><input type="text" name="country"/></td>
+				</tr>
+				<tr>
+					<td>City:</td>
+					<td><input type="text" name="city"/></td>
+				</tr>
+				<tr>
+					<td><input type="submit" name="submit" value="Register!"/></td>
+					<td> </td>
+				</tr>
+		</table>
+		</form>
+		<h2>Current global rank leaders . . .</h2>
+		{% if ranks %}
+		<table id="list-view">
+			<thead>
+				<tr>
+					<td><b>No</td>
+					<td><b>Name</b></td>
+					<td><b>Score</b></td>
+				</tr>
+			</thead>
+			<tbody>
+			{% for entry in ranks %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{ entry.first_name }} {{entry.last_name}}</td>
+					<td>{{ entry.total_score }}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		{% endif %}
+{% endblock %}

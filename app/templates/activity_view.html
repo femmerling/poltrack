@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+		<h1>View Activity single entry.</h1>
+		<table>
+				<tr>
+					<td>Name:</td>
+					<td>{{ activity.name }}</td>
+				</tr>
+				<tr>
+					<td>Positive:</td>
+					<td>{{ activity.positive }}</td>
+				</tr>
+				<tr>
+					<td>Negative:</td>
+					<td>{{ activity.negative }}</td>
+				</tr>
+		</table>
+{% endblock %}

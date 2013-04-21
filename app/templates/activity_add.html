@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+		<h1>Add new Activity Entries.</h1>
+		<form name="activity_add" method="post" action="/activity/">
+		<table>
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" name="name"/></td>
+				</tr>
+				<tr>
+					<td>Score:</td>
+					<td><input type="text" name="score"/></td>
+				</tr>
+				<tr>
+					<td><input type="submit" name="submit" value="Add Entry"/></td>
+					<td> </td>
+				</tr>
+		</table>
+		</form>
+{% endblock %}

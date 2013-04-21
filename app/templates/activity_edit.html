@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+		<h1>Edit Activity Entries.</h1>
+		<form id="edit-form" name="activity_add" method="put" action="/activity/{{ activity_item.id }}">
+		<input type="hidden" id="url" value="/activity/{{ activity_item.id }}">
+		<table>
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" name="name" value="{{ activity_item.name }}"/></td>
+				</tr>
+				<tr>
+					<td>Score:</td>
+					<td><input type="text" name="score" value="{{ activity_item.score }}"/></td>
+				</tr>
+				<tr>
+					<td><input id="submit-put" type="submit" name="submit" value="Edit Entry"/></td>
+					<td> </td>
+				</tr>
+		</table>
+		</form>
+{% endblock %}

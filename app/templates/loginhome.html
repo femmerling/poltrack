@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+		<h3>Hi {{user.first_name}}</h3>
+		{% if message %}
+		<p style="font-weight:bold;color:red">{{message}}</p>
+		{% endif %}
+		<p>your current Poltrackian score is: <b>{{user.total_score}}</b> from {{total_actions}} {% if total_actions > 1 %}actions{% else %}action{% endif %} that you have done.</p>
+		<br/><p><a href="/action">view all your actions</a></p>
+		<h3>Track your action for today</h3>
+		<form id="track_form" action="/action/" method="POST"/>
+			<p>What did you do today?</p>
+			<select name="activity_id">
+				{% if activities %}
+				{% for item in activities %}
+				<option value="{{item.id}}">{{item.name}}</option>
+				{% endfor %}
+				{% endif %}
+			</select><br/>
+			<input type="submit" name="submit" value="Track!"/>
+	  </form>
+{% endblock %}

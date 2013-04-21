@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+		<h1>View Comment single entry.</h1>
+		<table>
+				<tr>
+					<td>Action_Id:</td>
+					<td>{{ comment.action_id }}</td>
+				</tr>
+				<tr>
+					<td>User_Id:</td>
+					<td>{{ comment.user_id }}</td>
+				</tr>
+				<tr>
+					<td>Content:</td>
+					<td>{{ comment.content }}</td>
+				</tr>
+				<tr>
+					<td>Time:</td>
+					<td>{{ comment.time }}</td>
+				</tr>
+		</table>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+		<h1>List of Activity Entries.</h1>
+		{% if activity_entries %}
+		<table id="list-view">
+			<thead>
+				<tr>
+					<td><b>ID</td>
+					<td><b>Name</b></td>
+					<td><b>Score</b></td>
+					<td><b> </td>
+					<td><b> </td>
+				</tr>
+			</thead>
+			
+			<tbody>
+			{% for entry in activity_entries %}
+				<tr>
+					<td><a href="/activity/{{ entry.id }}">{{ entry.id }}</a></td>
+					<td>{{ entry.name }}</td>
+					<td>{{ entry.score }}</td>
+					<td><a href="/activity/edit/{{ entry.id }}">Edit</a></td>
+					<td><a id="delete-link" data-callback="/activity/" data-url="/activity/{{ entry.id }}">Delete</a></td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		{% else %}
+		You have no entries yet
+			{% endif %}
+			<br/><br/><b><a id="actions" href="/activity/add">Add new entry</a></b>
+{% endblock %}

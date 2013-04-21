@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+		<h2>My Profile</h2>
+		<table>
+				<tr>
+					<td>Email</td>
+					<td>: {{ user.email }}</td>
+				</tr>
+				<tr>
+					<td>First Name</td>
+					<td>: {{ user.first_name }}</td>
+				</tr>
+				<tr>
+					<td>Last Name</td>
+					<td>: {{ user.last_name }}</td>
+				</tr>
+				<tr>
+					<td>Current Score</td>
+					<td>: {{ user.total_score }}</td>
+				</tr>
+				<tr>
+					<td>Country</td>
+					<td>: {{ user.country }}</td>
+				</tr>
+				<tr>
+					<td>City</td>
+					<td>: {{ user.city }}</td>
+				</tr>
+				<tr>
+					<td>Join Date</td>
+					<td>: {{ user.join_date }}</td>
+				</tr>
+		</table>
+		<br/>
+		{% if acts %}
+		<h3>My Latest Actions</h3>
+		<ul>
+			{% for act in acts%}
+			<li>
+				<b>I {{act.activity}}</b> and {% if act.score > 0 %}contribute + {{act.score}} to{% else %}hurt {{act.score}}{% endif %} my score and the world.
+			</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+{% endblock %}

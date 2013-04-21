@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+		<h1>{{area}} Rankings</h1>
+		{% if ranks %}
+		<table id="list-view">
+			<thead>
+				<tr>
+					<td><b>No</td>
+					<td><b>Name</b></td>
+					<td><b>Score</b></td>
+				</tr>
+			</thead>
+			<tbody>
+			{% for entry in ranks %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{ entry.first_name }} {{entry.last_name}}</td>
+					<td>{{ entry.total_score }}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		{% else %}
+		No ranks available yet
+			{% endif %}
+{% endblock %}

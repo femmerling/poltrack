@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+		<h1>Add new User Entries.</h1>
+		<form name="user_add" method="post" action="/user/">
+		<table>
+				<tr>
+					<td>Email:</td>
+					<td><input type="text" name="email"/></td>
+				</tr>
+				<tr>
+					<td>First Name:</td>
+					<td><input type="text" name="first_name"/></td>
+				</tr>
+				<tr>
+					<td>Last Name:</td>
+					<td><input type="text" name="last_name"/></td>
+				</tr>
+				<tr>
+					<td>Select a Password:</td>
+					<td><input type="password" name="password"/></td>
+				</tr>
+				<tr>
+					<td>Country:</td>
+					<td><input type="text" name="country"/></td>
+				</tr>
+				<tr>
+					<td>City:</td>
+					<td><input type="text" name="city"/></td>
+				</tr>
+				<tr>
+					<td><input type="submit" name="submit" value="Add Entry"/></td>
+					<td> </td>
+				</tr>
+		</table>
+		</form>
+{% endblock %}

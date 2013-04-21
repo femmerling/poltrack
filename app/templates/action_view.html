@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+		<h1>View Action single entry.</h1>
+		<table>
+				<tr>
+					<td>Activity_Id:</td>
+					<td>{{ action.activity_id }}</td>
+				</tr>
+				<tr>
+					<td>Score:</td>
+					<td>{{ action.score }}</td>
+				</tr>
+				<tr>
+					<td>Time:</td>
+					<td>{{ action.time }}</td>
+				</tr>
+		</table>
+{% endblock %}

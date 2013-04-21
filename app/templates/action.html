@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+		<h1>My Actions</h1>
+		<h3>Track your action for today</h3>
+		<form id="track_form" action="/action/" method="POST"/>
+			<p>What did you do today?</p>
+			<select name="activity_id">
+				{% if activities %}
+				{% for item in activities %}
+				<option value="{{item.id}}">{{item.name}}</option>
+				{% endfor %}
+				{% endif %}
+			</select><br/>
+			<input type="submit" name="submit" value="Track!"/>
+	  </form>
+		<table id="list-view">
+			<thead>
+				<tr>
+					<td><b>No</td>
+					<td><b>Activity</b></td>
+					<td><b>Score</b></td>
+					<td><b>Activity Time</b></td>
+
+				</tr>
+			</thead>
+			{% if action_entries %}
+			<tbody>
+			{% for entry in action_entries %}
+				<tr>
+					<td>{{ loop.index }}</td>
+					<td>{{ entry.activity }}</td>
+					<td>{{ entry.score }}</td>
+					<td>{{ entry.time }}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+			{% else %}
+		</table>
+		You have no entries yet
+			{% endif %}
+{% endblock %}

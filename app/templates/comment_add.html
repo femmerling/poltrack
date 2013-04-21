@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+		<h1>Add new Comment Entries.</h1>
+		<form name="comment_add" method="post" action="/comment/">
+		<table>
+				<tr>
+					<td>Action_Id:</td>
+					<td><input type="text" name="action_id"/></td>
+				</tr>
+				<tr>
+					<td>User_Id:</td>
+					<td><input type="text" name="user_id"/></td>
+				</tr>
+				<tr>
+					<td>Content:</td>
+					<td><input type="text" name="content"/></td>
+				</tr>
+				<tr>
+					<td>Time:</td>
+					<td><input type="text" name="time"/></td>
+				</tr>
+				<tr>
+					<td><input type="submit" name="submit" value="Add Entry"/></td>
+					<td> </td>
+				</tr>
+		</table>
+		</form>
+{% endblock %}

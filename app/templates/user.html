@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+		<h1>List of User Entries.</h1>
+		<table id="list-view">
+			<thead>
+				<tr>
+					<td><b>ID</td>
+					<td><b>Email</b></td>
+					<td><b>First_Name</b></td>
+					<td><b>Last_Name</b></td>
+					<td><b>Password</b></td>
+					<td><b>Country</b></td>
+					<td><b>City</b></td>
+					<td><b>Join_Date</b></td>
+					<td><b> </td>
+					<td><b> </td>
+				</tr>
+			</thead>
+			{% if user_entries %}
+			<tbody>
+			{% for entry in user_entries %}
+				<tr>
+					<td><a href="/user/{{ entry.id }}">{{ entry.id }}</a></td>
+					<td>{{ entry.email }}</td>
+					<td>{{ entry.first_name }}</td>
+					<td>{{ entry.last_name }}</td>
+					<td>{{ entry.password }}</td>
+					<td>{{ entry.country }}</td>
+					<td>{{ entry.city }}</td>
+					<td>{{ entry.join_date }}</td>
+					<td><a href="/user/edit/{{ entry.id }}">Edit</a></td>
+					<td><a id="delete-link" data-callback="/user/" data-url="/user/{{ entry.id }}">Delete</a></td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+			{% else %}
+		</table>
+		You have no entries yet
+			{% endif %}
+			<br/><br/><b><a id="actions" href="/user/add">Add new entry</a></b>
+{% endblock %}

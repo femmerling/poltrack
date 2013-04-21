@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+		<h1>Edit User Entries.</h1>
+		<form id="edit-form" name="user_add" method="put" action="/user/{{ user_item.id }}">
+		<input type="hidden" id="url" value="/user/{{ user_item.id }}">
+		<table>
+				<tr>
+					<td>Email:</td>
+					<td><input type="text" name="email" value="{{ user_item.email }}"/></td>
+				</tr>
+				<tr>
+					<td>First_Name:</td>
+					<td><input type="text" name="first_name" value="{{ user_item.first_name }}"/></td>
+				</tr>
+				<tr>
+					<td>Last_Name:</td>
+					<td><input type="text" name="last_name" value="{{ user_item.last_name }}"/></td>
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><input type="text" name="password" value="{{ user_item.password }}"/></td>
+				</tr>
+				<tr>
+					<td>Country:</td>
+					<td><input type="text" name="country" value="{{ user_item.country }}"/></td>
+				</tr>
+				<tr>
+					<td>City:</td>
+					<td><input type="text" name="city" value="{{ user_item.city }}"/></td>
+				</tr>
+				<tr>
+					<td>Join_Date:</td>
+					<td><input type="text" name="join_date" value="{{ user_item.join_date }}"/></td>
+				</tr>
+				<tr>
+					<td><input id="submit-put" type="submit" name="submit" value="Edit Entry"/></td>
+					<td> </td>
+				</tr>
+		</table>
+		</form>
+{% endblock %}
