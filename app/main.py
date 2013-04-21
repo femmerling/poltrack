@@ -178,7 +178,7 @@ def action_controller(id):
 				return 'Method Not Allowed'
 		else:
 			if request.method == 'GET':
-				action_list = Action.query.all()
+				action_list = Action.query.filter(Action.user_id == session["user"]["id"])
 				if action_list:
 					entries = [action.dto() for action in action_list]
 				else:
