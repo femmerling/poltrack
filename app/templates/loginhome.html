@@ -4,7 +4,8 @@
 		{% if message %}
 		<p style="font-weight:bold;color:red">{{message}}</p>
 		{% endif %}
-		<p>your current Poltrackian score is: <b>{{user.total_score}}</b> from {{total_actions}} {% if total_actions > 1 %}actions{% else %}action{% endif %} that you have done.</p>
+		<p>your current Poltrackian score is: <br/><br/>
+			<span style="font-size:30px">{{user.total_score}}</b></span> from {{total_actions}} {% if total_actions > 1 %}actions{% else %}action{% endif %} that you have done.</p>
 		<br/><p><a href="/action">view all your actions</a></p>
 		<h3>Track your action for today</h3>
 		<form id="track_form" action="/action/" method="POST"/>
